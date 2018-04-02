@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.linkedin.android.learning_android_accessibility.activities.ChartsActivity">
 
@@ -24,14 +25,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/line_chart_heading"
+                android:id="@+id/charts_line_chart_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/padding_l"
                 android:text="@string/charts_line_chart_heading"/>
 
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/line_chart"
+                android:id="@+id/charts_line_chart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"/>
 
@@ -41,14 +42,14 @@
                 android:layout_marginBottom="@dimen/padding_l"/>
 
             <TextView
-                android:id="@+id/bar_chart_heading"
+                android:id="@+id/charts_bar_chart_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/padding_l"
                 android:text="@string/charts_bar_chart_heading"/>
 
             <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/bar_chart"
+                android:id="@+id/charts_bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"/>
 

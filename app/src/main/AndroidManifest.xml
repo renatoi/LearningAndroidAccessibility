@@ -54,6 +54,13 @@
                 android:value="com.linkedin.android.learning_android_accessibility.activities.MainActivity"/>
         </activity>
         <activity
+            android:name=".activities.CustomViewActivity"
+            android:label="@string/custom_view_title">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.linkedin.android.learning_android_accessibility.activities.MainActivity"/>
+        </activity>
+        <activity
             android:name=".activities.ChartsActivity"
             android:label="@string/charts_title">
             <meta-data

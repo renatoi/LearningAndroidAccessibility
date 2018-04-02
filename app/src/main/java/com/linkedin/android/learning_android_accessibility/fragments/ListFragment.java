@@ -1,6 +1,5 @@
 package com.linkedin.android.learning_android_accessibility.fragments;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,7 +16,6 @@ import com.linkedin.android.learning_android_accessibility.adapters.ListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * A simple {@link Fragment} subclass.

@@ -70,6 +70,15 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        // Custom View
+        Button customViewButton = findViewById(R.id.main_custom_button);
+        customViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(CustomViewActivity.newIntent(context));
+            }
+        });
+
         // Charts
         Button chartsButton = findViewById(R.id.main_charts_button);
         chartsButton.setOnClickListener(new View.OnClickListener() {

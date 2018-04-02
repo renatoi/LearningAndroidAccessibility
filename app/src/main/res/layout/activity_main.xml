@@ -66,6 +66,15 @@
             <View style="@style/AppTheme.Divider" />
 
             <Button
+                android:id="@+id/main_custom_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/custom_view_title"/>
+
+            <View style="@style/AppTheme.Divider" />
+
+            <Button
                 android:id="@+id/main_charts_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

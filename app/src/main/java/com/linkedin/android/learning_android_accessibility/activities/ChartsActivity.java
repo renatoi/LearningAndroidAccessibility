@@ -49,8 +49,8 @@ public class ChartsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         // charts ref
-        LineChart lineChart = findViewById(R.id.line_chart);
-        BarChart barChart = findViewById(R.id.bar_chart);
+        LineChart lineChart = findViewById(R.id.charts_line_chart);
+        BarChart barChart = findViewById(R.id.charts_bar_chart);
 
         // configure charts
         IAxisValueFormatter xValueFormatter = getValueFormatterForMonth();

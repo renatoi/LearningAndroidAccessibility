@@ -3,10 +3,9 @@ package com.linkedin.android.learning_android_accessibility.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.linkedin.android.learning_android_accessibility.R;
 import com.linkedin.android.learning_android_accessibility.adapters.TabLayoutPagerAdapter;
