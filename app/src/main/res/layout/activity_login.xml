@@ -14,8 +14,17 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/AppTheme.ToolBar"/>
 
+    <TextView
+        android:id="@+id/login_error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_l"
+        android:textAppearance="@style/ErrorText"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/login_email_address"
+        android:importantForAutofill="no"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_l"
@@ -23,9 +32,11 @@
         android:layout_marginStart="@dimen/padding_l"
         android:layout_marginRight="@dimen/padding_l"
         android:layout_marginEnd="@dimen/padding_l"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/login_error_message"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:errorTextAppearance="@style/ErrorText"
+        app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -45,11 +56,14 @@
         android:layout_marginEnd="@dimen/padding_l"
         app:layout_constraintTop_toBottomOf="@id/login_email_address"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:errorTextAppearance="@style/ErrorText"
+        app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="@string/login_password"/>
 
     </android.support.design.widget.TextInputLayout>

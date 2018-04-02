@@ -40,4 +40,8 @@
         <item name="android:contentDescription">@null</item>
     </style>
 
+    <style name="ErrorText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorError</item>
+    </style>
+
 </resources>
