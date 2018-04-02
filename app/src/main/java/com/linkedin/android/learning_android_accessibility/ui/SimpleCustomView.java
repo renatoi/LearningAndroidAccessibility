@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.accessibility.AccessibilityNodeInfo;
 
 import com.linkedin.android.learning_android_accessibility.utils.AccessibilityUtils;
 
@@ -45,5 +46,11 @@ public class SimpleCustomView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawText(TEXT, 0, mBounds.bottom, mTextPaint);
+    }
+
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        info.setText(TEXT);
     }
 }
