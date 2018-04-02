@@ -44,7 +44,7 @@ public class ListFragment extends Fragment implements ListAdapter.ItemClickListe
             mCallback = (ItemClickListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement onListItemClicked(View view, int position)");
         }
     }
 
