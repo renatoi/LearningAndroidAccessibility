@@ -48,6 +48,11 @@ public class TabLayoutActivity extends BaseActivity {
             // set tab nameView and content description to announce role and value
             if (tab != null && tabNames[i] != null) {
                 tab.setText(tabNames[i]);
+
+                String tabRoleValue = String.format(res.getString(R.string.tab_layout_role_value),
+                        i + 1, tabLayout.getTabCount());
+
+                tab.setContentDescription(tabNames[i] + ", "  + tabRoleValue);
             }
         }
     }
