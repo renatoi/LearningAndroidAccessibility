@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <stroke
+                android:width="@dimen/focus_border"
+                android:color="@color/colorAccent"/>
+            <padding
+                android:left="@dimen/focus_border"
+                android:top="@dimen/focus_border"
+                android:right="@dimen/focus_border"
+                android:bottom="@dimen/focus_border" />
+        </shape>
+    </item>
+</selector>

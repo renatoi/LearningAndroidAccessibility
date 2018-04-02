@@ -8,4 +8,36 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.ToolBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:background">?colorPrimary</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.FocusBorder">
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/focus_selector</item>
+    </style>
+
+    <style name="AppTheme.ListButton" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:minHeight">@dimen/min_touch_size</item>
+        <item name="android:minWidth">@dimen/min_touch_size</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:paddingTop">@dimen/padding_m</item>
+        <item name="android:paddingBottom">@dimen/padding_m</item>
+        <item name="android:paddingLeft">@dimen/padding_l</item>
+        <item name="android:paddingRight">@dimen/padding_l</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Menu</item>
+    </style>
+
+    <style name="AppTheme.Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
 </resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.ToolBar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/main_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/login_title"/>
+
+            <View style="@style/AppTheme.Divider" />
+
+            <Button
+                android:id="@+id/main_settings_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/settings_title"/>
+
+            <View style="@style/AppTheme.Divider" />
+
+            <Button
+                android:id="@+id/main_tablayout_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/tab_layout_title"/>
+
+            <View style="@style/AppTheme.Divider" />
+
+            <Button
+                android:id="@+id/main_single_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/single_title"/>
+
+            <View style="@style/AppTheme.Divider" />
+
+            <Button
+                android:id="@+id/main_cards_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/cards_title"/>
+
+            <View style="@style/AppTheme.Divider" />
+
+            <Button
+                android:id="@+id/main_charts_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ListButton"
+                android:text="@string/charts_title"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

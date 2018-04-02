@@ -1,0 +1,15 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            tools:context="com.linkedin.android.learning_android_accessibility.fragments.TabLayoutFragment">
+
+    <TextView
+        android:id="@+id/tab_layout_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_l"
+        style="@style/Base.TextAppearance.AppCompat.Body1"/>
+
+</ScrollView>

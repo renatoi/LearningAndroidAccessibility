@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.linkedin.android.learning_android_accessibility.activities.SettingsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.ToolBar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/settings_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_l"
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                android:text="@string/settings_checkbox_label"/>
+
+            <Switch
+                android:id="@+id/settings_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_l"
+                android:text="@string/settings_switch_label"/>
+
+            <RadioGroup
+                android:id="@+id/settings_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/settings_radio_opt_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/padding_l"
+                    android:paddingLeft="@dimen/padding_l"
+                    android:paddingStart="@dimen/padding_l"
+                    android:paddingRight="@dimen/padding_l"
+                    android:paddingEnd="@dimen/padding_l"
+                    android:button="@null"
+                    android:drawableRight="@android:drawable/btn_radio"
+                    android:drawableEnd="@android:drawable/btn_radio"
+                    android:text="@string/settings_radio_option_1"/>
+                <RadioButton
+                    android:id="@+id/settings_radio_opt_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/padding_l"
+                    android:paddingLeft="@dimen/padding_l"
+                    android:paddingStart="@dimen/padding_l"
+                    android:paddingRight="@dimen/padding_l"
+                    android:paddingEnd="@dimen/padding_l"
+                    android:button="@null"
+                    android:drawableRight="@android:drawable/btn_radio"
+                    android:drawableEnd="@android:drawable/btn_radio"
+                    android:text="@string/settings_radio_option_2"/>
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/settings_spinner_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/padding_l">
+                <TextView
+                    android:id="@+id/settings_spinner_label"
+                    android:labelFor="@+id/settings_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spinner"/>
+                <Spinner
+                    android:id="@+id/settings_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/min_touch_size"
+                    tools:listitem="@android:layout/simple_spinner_item"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/padding_l">
+                <TextView
+                    android:id="@+id/settings_seekbar_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seek bar:"/>
+                <SeekBar
+                    android:id="@+id/settings_seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/min_touch_size"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

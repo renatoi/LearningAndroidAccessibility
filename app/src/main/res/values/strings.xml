@@ -1,3 +1,91 @@
 <resources>
-    <string name="app_name">Learning-Android-Accessibility</string>
+    <string name="app_name">Learning Android Accessibility</string>
+    <string name="action_accessibility">Accessibility</string>
+    <string name="action_help">Help</string>
+
+    <!-- Login -->
+    <string name="login_title">Login</string>
+    <string name="login_email_address">Email address</string>
+    <string name="login_password">Password</string>
+    <string name="login_remember_email_address">Remember email address</string>
+    <string name="login_login">Login</string>
+    <string name="login_forgot_password">Forgot password?</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_checkbox_label">Checkbox</string>
+    <string name="settings_switch_label">Switch</string>
+    <string name="settings_radio_option_1">Radio Option 1</string>
+    <string name="settings_radio_option_2">Radio Option 2</string>
+    <string-array name="settings_spinner_array">
+        <item>Spinner Option 0</item>
+        <item>Spinner Option 1</item>
+        <item>Spinner Option 2</item>
+        <item>Spinner Option 3</item>
+        <item>Spinner Option 4</item>
+        <item>Spinner Option 5</item>
+        <item>Spinner Option 6</item>
+        <item>Spinner Option 7</item>
+        <item>Spinner Option 8</item>
+        <item>Spinner Option 9</item>
+    </string-array>
+
+    <!-- TabLayout Activity -->
+    <string name="tab_layout_title">Tab Layout</string>
+    <string-array name="tab_layout_tabs">
+        <item>About</item>
+        <item>Mistakes</item>
+        <item>Learn</item>
+    </string-array>
+    <string-array name="tab_layout_tabs_content">
+        <item><![CDATA[
+        <h1>About Tab components</h1>
+        <p>Like other UI components, a Tab component requires a <b>name</b>, a <b>role</b>,
+        a <b>value</b> and a <b>state</b>.</p>
+        <p>This is to give screen reader users enough information about the type of the component,
+        the name of the tab, the position of the current tab and the total number of tabs there are,
+        and if the current tab is selected.</p>
+        <p>The utterance must announce all of these information.</p>
+        <p>Unfortunately, only the state is automatically announced when using TabLayout from support
+        design library. It is responsibility of the developer to set each tab a content description that
+        announces the required information.</p>
+        ]]></item>
+        <item><![CDATA[
+        <h1>Common mistakes in Tab components</h1>
+        <h2>Lack of content description</h2>
+        <p>Because this behavior has not yet been implemented by default in the support design library,
+        a lot of developers often forget to provide the required content description to each tab.</p>
+        <h2>Auto focus</h2>
+        <p>A common mistake developers often do is to move the accessibility focus to the content of the
+        tab after selecting a tab. Accessibility focus must stay on the tab after being selected.</p>
+        ]]></item>
+        <item><![CDATA[
+        <h1>Learn more about Tab components</h1>
+        <p>Look at the source of this activity and see how we\'re setting content description. You can
+        extend the TabLayout to provide this behavior by default.</p>
+        <p>Look at the <a href="https://developer.android.com/reference/android/support/design/widget/TabLayout.html">TabLayout</a>
+        documentation as well as using a <a href="https://developer.android.com/reference/android/widget/TabHost.html">TabHost</a>.</p>
+        ]]></item>
+    </string-array>
+
+    <!-- Single Activity -->
+    <string name="single_title">Single Activity</string>
+
+    <!-- Cards -->
+    <string name="cards_title">Cards</string>
+    <string name="cards_share_via">Share via</string>
+    <string name="cards_timeloc_format">%1$s • %2$s</string>
+
+    <!-- Charts -->
+    <string name="charts_title">Charts</string>
+    <plurals name="charts_plurals_data_description">
+        <item quantity="one">%1$s, %2$d employee</item>
+        <item quantity="other">%1$s, %2$d employees</item>
+    </plurals>
+    <string name="charts_line_chart_heading">Line Chart Example: Employee Count</string>
+    <string name="charts_bar_chart_heading">Bar Chart Example: Employee Count</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="single_detail_fragment_text">Detail fragment</string>
 </resources>
