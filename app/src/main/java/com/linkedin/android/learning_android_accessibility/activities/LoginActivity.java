@@ -2,8 +2,10 @@ package com.linkedin.android.learning_android_accessibility.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +19,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView mErrorMessage;
     private TextInputLayout mEmailField;
     private TextInputLayout mPasswordField;
-
 
     public static Intent newIntent(Context context) {
         return new Intent(context, LoginActivity.class);
@@ -38,6 +39,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         Button loginButton = findViewById(R.id.login_login_button);
         loginButton.setOnClickListener(this);
+
+        // make error message a live region
+        ViewCompat.setAccessibilityLiveRegion(mErrorMessage,
+                ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE);
     }
 
     @Override
