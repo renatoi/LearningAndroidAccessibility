@@ -83,6 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/padding_l"
         android:layout_marginStart="@dimen/padding_l"
+        android:minWidth="@dimen/min_touch_size"
+        android:minHeight="@dimen/min_touch_size"
         app:layout_constraintTop_toBottomOf="@+id/login_password"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/login_remember_email_address"/>
