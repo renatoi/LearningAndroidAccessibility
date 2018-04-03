@@ -44,6 +44,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void onClick(View v) {
         if (!hasEmptyFields()) {
             mErrorMessage.setText(getString(R.string.login_invalid));
+            mEmailField.setError(null);
+            mPasswordField.setError(null);
         }
     }
 
