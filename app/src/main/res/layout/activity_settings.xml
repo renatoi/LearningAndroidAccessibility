@@ -30,12 +30,14 @@
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                android:foreground="@drawable/focus_selector"
                 android:text="@string/settings_checkbox_label"/>
 
             <Switch
                 android:id="@+id/settings_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:foreground="@drawable/focus_selector"
                 android:padding="@dimen/padding_l"
                 android:text="@string/settings_switch_label"/>
 
@@ -53,8 +55,9 @@
                     android:paddingRight="@dimen/padding_l"
                     android:paddingEnd="@dimen/padding_l"
                     android:button="@null"
-                    android:drawableRight="@android:drawable/btn_radio"
-                    android:drawableEnd="@android:drawable/btn_radio"
+                    android:drawableRight="?android:listChoiceIndicatorSingle"
+                    android:drawableEnd="?android:listChoiceIndicatorSingle"
+                    android:foreground="@drawable/focus_selector"
                     android:text="@string/settings_radio_option_1"/>
                 <RadioButton
                     android:id="@+id/settings_radio_opt_2"
@@ -66,8 +69,9 @@
                     android:paddingRight="@dimen/padding_l"
                     android:paddingEnd="@dimen/padding_l"
                     android:button="@null"
-                    android:drawableRight="@android:drawable/btn_radio"
-                    android:drawableEnd="@android:drawable/btn_radio"
+                    android:drawableRight="?android:listChoiceIndicatorSingle"
+                    android:drawableEnd="?android:listChoiceIndicatorSingle"
+                    android:foreground="@drawable/focus_selector"
                     android:text="@string/settings_radio_option_2"/>
             </RadioGroup>
 
@@ -87,6 +91,7 @@
                     android:id="@+id/settings_spinner"
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/min_touch_size"
+                    android:foreground="@drawable/focus_selector"
                     tools:listitem="@android:layout/simple_spinner_item"/>
             </LinearLayout>
 
@@ -103,7 +108,8 @@
                 <SeekBar
                     android:id="@+id/settings_seekbar"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/min_touch_size"/>
+                    android:layout_height="@dimen/min_touch_size"
+                    android:foreground="@drawable/focus_selector"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
