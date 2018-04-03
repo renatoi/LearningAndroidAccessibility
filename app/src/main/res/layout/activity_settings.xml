@@ -53,8 +53,8 @@
                     android:paddingRight="@dimen/padding_l"
                     android:paddingEnd="@dimen/padding_l"
                     android:button="@null"
-                    android:drawableRight="@android:drawable/btn_radio"
-                    android:drawableEnd="@android:drawable/btn_radio"
+                    android:drawableRight="?android:listChoiceIndicatorSingle"
+                    android:drawableEnd="?android:listChoiceIndicatorSingle"
                     android:text="@string/settings_radio_option_1"/>
                 <RadioButton
                     android:id="@+id/settings_radio_opt_2"
@@ -66,8 +66,8 @@
                     android:paddingRight="@dimen/padding_l"
                     android:paddingEnd="@dimen/padding_l"
                     android:button="@null"
-                    android:drawableRight="@android:drawable/btn_radio"
-                    android:drawableEnd="@android:drawable/btn_radio"
+                    android:drawableRight="?android:listChoiceIndicatorSingle"
+                    android:drawableEnd="?android:listChoiceIndicatorSingle"
                     android:text="@string/settings_radio_option_2"/>
             </RadioGroup>
 
