@@ -90,6 +90,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
         void onCommentClicked(View view, int position);
         void onFavoriteClicked(View view, int position);
         void onShareClicked(View view, int position);
+        void onMoreOptionsClicked(View view, int position);
     }
 
     /* ----------------------------------------------------------------
@@ -105,6 +106,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
         ImageButton mCommentButton;
         ImageButton mFavoriteButton;
         ImageButton mShareButton;
+        ImageButton mMoreOptionsButton;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -117,11 +119,13 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
             mCommentButton = itemView.findViewById(R.id.cards_card_comment);
             mFavoriteButton = itemView.findViewById(R.id.cards_card_favorite);
             mShareButton = itemView.findViewById(R.id.cards_card_share);
+            mMoreOptionsButton = itemView.findViewById(R.id.cards_card_more_options);
 
             mLikeButton.setOnClickListener(this);
             mCommentButton.setOnClickListener(this);
             mFavoriteButton.setOnClickListener(this);
             mShareButton.setOnClickListener(this);
+            mMoreOptionsButton.setOnClickListener(this);
         }
 
         @Override
@@ -146,6 +150,11 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
                 case R.id.cards_card_share:
                     if (mClickListeners != null) {
                         mClickListeners.onShareClicked(view, position);
+                    }
+                    break;
+                case R.id.cards_card_more_options:
+                    if (mClickListeners != null) {
+                        mClickListeners.onMoreOptionsClicked(view, position);
                     }
                     break;
             }
