@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorControlHighlight">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.ToolBar">
@@ -30,6 +31,7 @@
         <item name="android:paddingRight">@dimen/padding_l</item>
         <item name="android:layout_margin">0dp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Menu</item>
+        <item name="android:background">@drawable/focus_selector</item>
     </style>
 
     <style name="AppTheme.Divider">
