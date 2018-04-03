@@ -54,6 +54,14 @@
             android:textSize="12sp"
             tools:text="13 hrs • Location, Country"/>
 
+        <ImageButton
+            android:id="@+id/cards_card_more_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/ic_more_vert_24dp"
+            android:background="?android:attr/selectableItemBackground"/>
+
         <TextView
             android:id="@+id/cards_card_share_text"
             android:layout_width="match_parent"
