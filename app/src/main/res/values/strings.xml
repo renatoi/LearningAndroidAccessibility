@@ -8,9 +8,9 @@
     <string name="login_remember_email_address">Remember email address</string>
     <string name="login_login">Login</string>
     <string name="login_forgot_password">Forgot password?</string>
-    <string name="login_email_required">Email is required</string>
-    <string name="login_password_required">Password is required</string>
-    <string name="login_invalid">Login or password is invalid</string>
+    <string name="login_email_required">⚠ Error: Email is required</string>
+    <string name="login_password_required">⚠ Error: Password is required</string>
+    <string name="login_invalid">⚠ Error: Login or password is invalid</string>
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>

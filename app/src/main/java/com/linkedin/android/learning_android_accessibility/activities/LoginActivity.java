@@ -59,6 +59,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             mPasswordField.setError(getString(R.string.login_password_required));
             hasEmptyFields = true;
         }
+        if (!hasEmptyFields) {
+            mEmailField.setError(null);
+            mPasswordField.setError(null);
+        }
         return hasEmptyFields;
     }
 }
