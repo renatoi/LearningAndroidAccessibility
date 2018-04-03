@@ -9,8 +9,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -112,6 +114,20 @@ public class CardsActivity extends BaseActivity implements CardListAdapter.ItemC
         String chooserTitle = getResources().getString(R.string.cards_share_via);
 
         startActivity(Intent.createChooser(shareIntent, chooserTitle));
+    }
+
+    @Override
+    public void onMoreOptionsClicked(View view, final int position) {
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.getMenuInflater().inflate(R.menu.cards_card_more_options_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                mAdapter.removeItem(position);
+                return true;
+            }
+        });
+
+        popup.show();
     }
 
     private void setUpItemTouchHelper() {
