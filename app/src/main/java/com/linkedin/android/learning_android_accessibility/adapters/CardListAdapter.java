@@ -3,6 +3,7 @@ package com.linkedin.android.learning_android_accessibility.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -55,14 +56,18 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 
         if (item.isLiked()) {
             holder.mLikeButton.setColorFilter(Color.BLUE);
+            holder.mLikeButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_thumb_up_24dp));
         } else {
             holder.mLikeButton.setColorFilter(null);
+            holder.mLikeButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_thumb_up_border_24dp));
         }
 
         if (item.isFavorited()) {
             holder.mFavoriteButton.setColorFilter(Color.RED);
+            holder.mFavoriteButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_favorite_24dp));
         } else {
             holder.mFavoriteButton.setColorFilter(null);
+            holder.mFavoriteButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_favorite_border_24dp));
         }
     }
 
