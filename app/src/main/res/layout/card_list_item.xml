@@ -58,6 +58,9 @@
             android:id="@+id/cards_card_more_options"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/min_touch_size_half"
+            android:paddingStart="@dimen/min_touch_size_half"
+            android:minHeight="@dimen/min_touch_size"
             app:layout_constraintRight_toRightOf="parent"
             app:srcCompat="@drawable/ic_more_vert_24dp"
             android:background="?android:attr/selectableItemBackground"/>
@@ -87,6 +90,8 @@
             android:background="?android:attr/selectableItemBackground"
             android:layout_width="0dp"
             android:layout_height="@dimen/min_touch_size"
+            android:minWidth="@dimen/min_touch_size"
+            android:minHeight="@dimen/min_touch_size"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/cards_card_comment"
             app:layout_constraintTop_toBottomOf="@id/cards_card_image"/>
@@ -97,6 +102,8 @@
             android:background="?android:attr/selectableItemBackground"
             android:layout_width="0dp"
             android:layout_height="@dimen/min_touch_size"
+            android:minWidth="@dimen/min_touch_size"
+            android:minHeight="@dimen/min_touch_size"
             app:layout_constraintLeft_toRightOf="@+id/cards_card_like"
             app:layout_constraintRight_toLeftOf="@+id/cards_card_favorite"
             app:layout_constraintTop_toBottomOf="@id/cards_card_image"/>
@@ -107,6 +114,8 @@
             android:background="?android:attr/selectableItemBackground"
             android:layout_width="0dp"
             android:layout_height="@dimen/min_touch_size"
+            android:minWidth="@dimen/min_touch_size"
+            android:minHeight="@dimen/min_touch_size"
             app:layout_constraintLeft_toRightOf="@+id/cards_card_comment"
             app:layout_constraintRight_toLeftOf="@+id/cards_card_share"
             app:layout_constraintTop_toBottomOf="@id/cards_card_image"/>
@@ -117,6 +126,8 @@
             android:background="?android:attr/selectableItemBackground"
             android:layout_width="0dp"
             android:layout_height="@dimen/min_touch_size"
+            android:minWidth="@dimen/min_touch_size"
+            android:minHeight="@dimen/min_touch_size"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/cards_card_favorite"
             app:layout_constraintTop_toBottomOf="@id/cards_card_image"/>

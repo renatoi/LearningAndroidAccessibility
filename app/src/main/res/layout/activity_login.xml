@@ -74,17 +74,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/padding_l"
         android:layout_marginStart="@dimen/padding_l"
+        android:minWidth="@dimen/min_touch_size"
+        android:minHeight="@dimen/min_touch_size"
         app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="@string/login_remember_email_address"
-        app:layout_constraintLeft_toRightOf="@+id/login_remember_checkbox"
-        app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintBottom_toTopOf="@+id/login_login_button"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/login_remember_email_address"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/login_login_button"

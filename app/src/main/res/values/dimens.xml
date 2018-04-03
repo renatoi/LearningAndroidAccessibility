@@ -2,6 +2,7 @@
 <resources>
     <dimen name="avatar_image">52dp</dimen>
     <dimen name="min_touch_size">48dp</dimen>
+    <dimen name="min_touch_size_half">24dp</dimen>
     <dimen name="padding_m">10dp</dimen>
     <dimen name="padding_l">16dp</dimen>
     <dimen name="focus_border">2dp</dimen>
