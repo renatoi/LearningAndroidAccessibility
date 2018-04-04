@@ -81,6 +81,7 @@
     <string name="cards_card_archive_this_post">Archive this post</string>
     <string name="cards_card_remove_this_post">Remove this post</string>
     <string name="cards_card_report_this_post">Report this post</string>
+    <string name="cards_card_more_options_button">More options for %1$s\'s post</string>
     <string name="cards_card_like_button">Like %1$s\'s post</string>
     <string name="cards_card_unlike_button">Unlike %1$s\'s post</string>
     <string name="cards_card_comment_button">Comment on %1$s\'s post</string>
