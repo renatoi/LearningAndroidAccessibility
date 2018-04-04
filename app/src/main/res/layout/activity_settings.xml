@@ -79,6 +79,7 @@
                 android:layout_margin="@dimen/padding_l">
                 <TextView
                     android:id="@+id/settings_spinner_label"
+                    android:labelFor="@+id/settings_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Spinner"/>
@@ -96,6 +97,7 @@
                 android:layout_margin="@dimen/padding_l">
                 <TextView
                     android:id="@+id/settings_seekbar_label"
+                    android:labelFor="@+id/settings_seekbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Seek bar:"/>
