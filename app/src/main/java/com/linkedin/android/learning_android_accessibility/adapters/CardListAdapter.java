@@ -58,6 +58,8 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
         // content description for image buttons
         Resources res = context.getResources();
         String name = item.getName();
+        String moreOptionsDescription = String.format(res.getString(R.string
+                .cards_card_more_options_button), name);
         String commentDescription = String.format(res.getString(R.string
                 .cards_card_comment_button), name);
         String shareDescription = String.format(res.getString(R.string
@@ -84,6 +86,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
         }
 
         // assign all content descriptions to image buttons
+        holder.mMoreOptionsButton.setContentDescription(moreOptionsDescription);
         holder.mLikeButton.setContentDescription(likeDescription);
         holder.mCommentButton.setContentDescription(commentDescription);
         holder.mFavoriteButton.setContentDescription(favoriteDescription);
