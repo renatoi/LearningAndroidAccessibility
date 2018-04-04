@@ -12,7 +12,9 @@ import com.linkedin.android.learning_android_accessibility.R;
 import com.linkedin.android.learning_android_accessibility.fragments.DetailFragment;
 import com.linkedin.android.learning_android_accessibility.fragments.ListFragment;
 
-public class SingleActivity extends BaseActivity implements ListFragment.ItemClickListener {
+public class SingleActivity extends BaseActivity implements ListFragment.ItemClickListener, DetailFragment.AnimationListener {
+
+    ListFragment mListFragment;
 
     public static Intent newIntent(Context context) {
         return new Intent(context, SingleActivity.class);
@@ -34,10 +36,10 @@ public class SingleActivity extends BaseActivity implements ListFragment.ItemCli
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         // the fragment
-        ListFragment fragment = ListFragment.newInstance();
+        mListFragment = ListFragment.newInstance();
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(mFragmentContainerId, fragment);
+        fragmentTransaction.add(mFragmentContainerId, mListFragment);
         fragmentTransaction.commit();
     }
 
@@ -50,5 +52,13 @@ public class SingleActivity extends BaseActivity implements ListFragment.ItemCli
             .add(mFragmentContainerId, detailFragment)
             .addToBackStack(null)
             .commit();
+    }
+
+    @Override
+    public void onAnimationEnded() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .hide(mListFragment)
+                .commit();
     }
 }
