@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -81,6 +82,7 @@ public class CardsActivity extends BaseActivity implements CardListAdapter.ItemC
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setItemAnimator(null);
 
         setUpItemTouchHelper();
     }
@@ -90,6 +92,7 @@ public class CardsActivity extends BaseActivity implements CardListAdapter.ItemC
         CardItem item = mAdapter.getItem(position);
         item.setLiked(!item.isLiked());
         mAdapter.notifyDataSetChanged();
+        view.sendAccessibilityEvent(AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED);
     }
 
     @Override
@@ -102,6 +105,7 @@ public class CardsActivity extends BaseActivity implements CardListAdapter.ItemC
         CardItem item = mAdapter.getItem(position);
         item.setFavorited(!item.isFavorited());
         mAdapter.notifyDataSetChanged();
+        view.sendAccessibilityEvent(AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED);
     }
 
     @Override
