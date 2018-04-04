@@ -27,6 +27,12 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 
     public CardListAdapter(List<CardItem> cardData) {
         mData = cardData;
+        setHasStableIds(true);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return mData.get(position).getAvatarId();
     }
 
     @NonNull
