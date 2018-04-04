@@ -81,7 +81,8 @@
                     android:id="@+id/settings_spinner_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Spinner"/>
+                    android:text="Spinner"
+                    android:labelFor="@+id/settings_spinner"/>
                 <Spinner
                     android:id="@+id/settings_spinner"
                     android:layout_width="fill_parent"
@@ -98,7 +99,8 @@
                     android:id="@+id/settings_seekbar_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seek bar:"/>
+                    android:text="Seek bar:"
+                    android:labelFor="@+id/settings_seekbar"/>
                 <SeekBar
                     android:id="@+id/settings_seekbar"
                     android:layout_width="match_parent"
