@@ -1,6 +1,7 @@
 package com.linkedin.android.learning_android_accessibility.adapters;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -26,6 +27,12 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 
     public CardListAdapter(List<CardItem> cardData) {
         mData = cardData;
+        setHasStableIds(true);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return mData.get(position).getAvatarId();
     }
 
     @NonNull
@@ -54,21 +61,43 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
         holder.mShareText.setText(item.getShareText());
         holder.mImage.setImageResource(item.getImageId());
 
+        // content description for image buttons
+        Resources res = context.getResources();
+        String name = item.getName();
+        String moreOptionsDescription = String.format(res.getString(R.string.cards_card_more_options_button), name);
+        String commentDescription = String.format(res.getString(R.string.cards_card_comment_button), name);
+        String shareDescription = String.format(res.getString(R.string.cards_card_share_button), name);
+
+        // content description for these buttons change based on state
+        String likeDescription;
+        String favoriteDescription;
+
         if (item.isLiked()) {
+            likeDescription = String.format(res.getString(R.string.cards_card_unlike_button), name);
             holder.mLikeButton.setColorFilter(Color.BLUE);
             holder.mLikeButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_thumb_up_24dp));
         } else {
+            likeDescription = String.format(res.getString(R.string.cards_card_like_button), name);
             holder.mLikeButton.setColorFilter(null);
             holder.mLikeButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_thumb_up_border_24dp));
         }
 
         if (item.isFavorited()) {
+            favoriteDescription = String.format(res.getString(R.string.cards_card_unfavorite_button), name);
             holder.mFavoriteButton.setColorFilter(Color.RED);
             holder.mFavoriteButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_favorite_24dp));
         } else {
+            favoriteDescription = String.format(res.getString(R.string.cards_card_unfavorite_button), name);
             holder.mFavoriteButton.setColorFilter(null);
             holder.mFavoriteButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_favorite_border_24dp));
         }
+
+        // assigning all content descriptions
+        holder.mMoreOptionsButton.setContentDescription(moreOptionsDescription);
+        holder.mLikeButton.setContentDescription(likeDescription);
+        holder.mCommentButton.setContentDescription(commentDescription);
+        holder.mFavoriteButton.setContentDescription(favoriteDescription);
+        holder.mShareButton.setContentDescription(shareDescription);
     }
 
     @Override
