@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_card_like" type="id"/>
+    <item name="action_card_comment" type="id"/>
+    <item name="action_card_favorite" type="id"/>
+    <item name="action_card_share" type="id"/>
+    <item name="action_card_archive" type="id"/>
+    <item name="action_card_remove" type="id"/>
+    <item name="action_card_report" type="id"/>
+</resources>
