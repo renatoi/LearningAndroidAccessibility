@@ -128,20 +128,6 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 
         ViewCompat.setAccessibilityDelegate(holder.itemView, new AccessibilityDelegateCompat() {
             @Override
-            public void onInitializeAccessibilityEvent(View host, AccessibilityEvent event) {
-                super.onInitializeAccessibilityEvent(host, event);
-                List<CharSequence> descriptions = AccessibilityUtils.getDescriptions(host);
-                if (item.isLiked()) {
-                    descriptions.add(res.getString(R.string.cards_card_liked));
-                }
-                if (item.isFavorited()) {
-                    descriptions.add(res.getString(R.string.cards_card_favorited));
-                }
-
-                event.getText().addAll(descriptions);
-            }
-
-            @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
                 super.onInitializeAccessibilityNodeInfo(host, info);
 
@@ -153,6 +139,9 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
                     descriptions.add(res.getString(R.string.cards_card_favorited));
                 }
                 info.setContentDescription(TextUtils.join(", ", descriptions));
+
+                info.addAction(new AccessibilityActionCompat(AccessibilityActionCompat
+                        .ACTION_CLICK.getId(), "Double tap to view full post"));
                 info.addAction(new AccessibilityActionCompat(R.id.action_card_like, likeDescription));
                 info.addAction(new AccessibilityActionCompat(R.id.action_card_comment, commentDescription));
                 info.addAction(new AccessibilityActionCompat(R.id.action_card_favorite, favoriteDescription));
