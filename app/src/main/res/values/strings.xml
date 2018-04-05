@@ -88,6 +88,8 @@
     <string name="cards_card_favorite_button">Favorite %1$s\'s post</string>
     <string name="cards_card_unfavorite_button">Unfavorite %1$s\'s post</string>
     <string name="cards_card_share_button">Share %1$s\'s post</string>
+    <string name="cards_card_liked">Liked</string>
+    <string name="cards_card_favorited">Favorited</string>
 
     <!-- Custom View -->
     <string name="custom_view_title">Custom view</string>

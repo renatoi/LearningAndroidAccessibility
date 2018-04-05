@@ -1,7 +1,14 @@
 package com.linkedin.android.learning_android_accessibility.utils;
 
 import android.content.res.Resources;
+import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AccessibilityUtils {
     /**
@@ -23,5 +30,33 @@ public class AccessibilityUtils {
      */
     public static float spToPx(float sp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, Resources.getSystem().getDisplayMetrics());
+    }
+
+    /**
+     * Iterate over all subviews and get content description or textview
+     * @param view The view to iterate
+     * @return The list of descriptions
+     */
+    public static List<CharSequence> getDescriptions(View view) {
+        List<CharSequence> descriptions = new ArrayList<>();
+
+        CharSequence contentDescription = view.getContentDescription();
+        if (!TextUtils.isEmpty(contentDescription)) {
+            descriptions.add(contentDescription);
+            return descriptions;
+        }
+
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            int count = viewGroup.getChildCount();
+            for (int i = 0; i < count; i++) {
+                descriptions.addAll(getDescriptions(viewGroup.getChildAt(i)));
+            }
+        } else if (view instanceof TextView) {
+            TextView textView = (TextView) view;
+            descriptions.add(textView.getText());
+        }
+
+        return descriptions;
     }
 }
