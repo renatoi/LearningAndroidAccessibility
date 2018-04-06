@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.view.MotionEvent;
-import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.BarLineChartBase;
@@ -34,16 +31,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import com.linkedin.android.learning_android_accessibility.accessibility.ChartAccessibilityHelper;
 import com.linkedin.android.learning_android_accessibility.utils.AccessibilityUtils;
 
-public class ChartsActivity extends BaseActivity implements ChartAccessibilityHelper.DataFormatter {
-
-    private List<Entry> mLineEntries;
-    private List<BarEntry> mBarEntries;
-
-    private ChartAccessibilityHelper mLineHelper;
-    private ChartAccessibilityHelper mBarHelper;
+public class ChartsActivity extends BaseActivity {
 
     public static Intent newIntent(Context context) {
         return new Intent(context, ChartsActivity.class);
@@ -71,29 +61,6 @@ public class ChartsActivity extends BaseActivity implements ChartAccessibilityHe
         float[] data = getRandomFloats(6, 500);
         setDataForChart(lineChart, data);
         setDataForChart(barChart, data);
-
-        // set accessibility delegate
-        mLineHelper = new ChartAccessibilityHelper(lineChart, mLineEntries);
-        mLineHelper.setDataFormatter(this);
-        ViewCompat.setAccessibilityDelegate(lineChart, mLineHelper);
-
-        mBarHelper = new ChartAccessibilityHelper(barChart, mBarEntries);
-        mBarHelper.setDataFormatter(this);
-        ViewCompat.setAccessibilityDelegate(barChart, mBarHelper);
-
-        // send hover events to the helper
-        lineChart.setOnHoverListener(new View.OnHoverListener() {
-            @Override
-            public boolean onHover(View v, MotionEvent event) {
-                return mLineHelper.dispatchHoverEvent(event);
-            }
-        });
-        barChart.setOnHoverListener(new View.OnHoverListener() {
-            @Override
-            public boolean onHover(View v, MotionEvent event) {
-                return mBarHelper.dispatchHoverEvent(event);
-            }
-        });
     }
 
     /**
@@ -132,7 +99,7 @@ public class ChartsActivity extends BaseActivity implements ChartAccessibilityHe
      * @param xAxisValueFormatter The value formatter for the xAxis
      */
     private static void configureChart(@NonNull BarLineChartBase chart,
-                                @NonNull IAxisValueFormatter xAxisValueFormatter) {
+                                       @NonNull IAxisValueFormatter xAxisValueFormatter) {
         // Configure chart
         chart.setScaleEnabled(false);
         chart.setDrawGridBackground(false);
@@ -160,17 +127,17 @@ public class ChartsActivity extends BaseActivity implements ChartAccessibilityHe
      * @param chart The chart to set data to
      * @param data And array of floats
      */
-    private void setDataForChart(@NonNull BarLineChartBase chart,
+    private static void setDataForChart(@NonNull BarLineChartBase chart,
                                         @NonNull float[] data) {
         // Line Data
         if (chart instanceof LineChart) {
-            mLineEntries = new ArrayList<>();
+            List<Entry> lineEntries = new ArrayList<>();
             for (int i = 0; i < data.length; i++) {
-                mLineEntries.add(new Entry(i, data[i]));
+                lineEntries.add(new Entry(i, data[i]));
             }
-            Collections.sort(mLineEntries, new EntryXComparator());
+            Collections.sort(lineEntries, new EntryXComparator());
 
-            LineDataSet lineDataSet = new LineDataSet(mLineEntries, "DataSet");
+            LineDataSet lineDataSet = new LineDataSet(lineEntries, "DataSet");
             lineDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
 
             ArrayList<ILineDataSet> lineDataSets = new ArrayList<>();
@@ -182,12 +149,12 @@ public class ChartsActivity extends BaseActivity implements ChartAccessibilityHe
         }
         // Bar data
         else if (chart instanceof BarChart) {
-            mBarEntries = new ArrayList<>();
+            List<BarEntry> barEntries = new ArrayList<>();
             for (int i = 0; i < data.length; i++) {
-                mBarEntries.add(new BarEntry(i, data[i]));
+                barEntries.add(new BarEntry(i, data[i]));
             }
 
-            BarDataSet barDataSet = new BarDataSet(mBarEntries, "DataSet");
+            BarDataSet barDataSet = new BarDataSet(barEntries, "DataSet");
             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
 
             ArrayList<IBarDataSet> barDataSets = new ArrayList<>();
@@ -197,13 +164,5 @@ public class ChartsActivity extends BaseActivity implements ChartAccessibilityHe
             barData.setValueTextSize(AccessibilityUtils.getScaleIndependentPixels(13f));
             ((BarChart) chart).setData(barData);
         }
-    }
-
-    @Override
-    public String getDataDescription(BarLineChartBase chart, List<? extends Entry> entries, Entry entry) {
-        String xValue = chart.getXAxis().getFormattedLabel(entries.indexOf(entry));
-        int yValue = Math.round(entry.getY());
-
-        return getResources().getQuantityString(R.plurals.charts_plurals_data_description, yValue, xValue, yValue);
     }
 }
