@@ -5,7 +5,9 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -20,6 +22,8 @@ import com.linkedin.android.learning_android_accessibility.models.CardItem;
 
 import java.util.Calendar;
 import java.util.List;
+
+import static android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 
 public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHolder> {
 
@@ -45,7 +49,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Context context = holder.itemView.getContext();
         CardItem item = getItem(position);
 
@@ -63,15 +67,15 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
         holder.mImage.setImageResource(item.getImageId());
 
         // content description for image buttons
-        Resources res = context.getResources();
+        final Resources res = context.getResources();
         String name = item.getName();
         String moreOptionsDescription = String.format(res.getString(R.string.cards_card_more_options_button), name);
-        String commentDescription = String.format(res.getString(R.string.cards_card_comment_button), name);
-        String shareDescription = String.format(res.getString(R.string.cards_card_share_button), name);
+        final String commentDescription = String.format(res.getString(R.string.cards_card_comment_button), name);
+        final String shareDescription = String.format(res.getString(R.string.cards_card_share_button), name);
 
         // content description for these buttons change based on state
-        String likeDescription;
-        String favoriteDescription;
+        final String likeDescription;
+        final String favoriteDescription;
 
         if (item.isLiked()) {
             likeDescription = String.format(res.getString(R.string.cards_card_unlike_button), name);
@@ -99,6 +103,23 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 //        holder.mCommentButton.setContentDescription(commentDescription);
 //        holder.mFavoriteButton.setContentDescription(favoriteDescription);
 //        holder.mShareButton.setContentDescription(shareDescription);
+
+        ViewCompat.setAccessibilityDelegate(holder.itemView, new AccessibilityDelegateCompat() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+
+                info.addAction(new AccessibilityActionCompat(AccessibilityActionCompat.ACTION_CLICK.getId(), "View full post"));
+
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_like, likeDescription));
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_comment, commentDescription));
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_favorite, favoriteDescription));
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_share, shareDescription));
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_archive, res.getString(R.string.cards_card_archive_this_post)));
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_remove, res.getString(R.string.cards_card_remove_this_post)));
+                info.addAction(new AccessibilityActionCompat(R.id.action_card_report, res.getString(R.string.cards_card_report_this_post)));
+            }
+        });
     }
 
     @Override
